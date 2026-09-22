@@ -29,3 +29,4 @@ Each topic has:
 - `XX-topic-lecture.md` - Deep explanation
 - `XX-topic-examples.py` - Runnable examples
 - `XX-topic-exercises.md` - Practice exercises
+God bless you all
