@@ -2,7 +2,7 @@
 
 ## Goal
 
-**Learn to make decisions in programs. Understand if/else statements, multiple branches with elif, nested conditions, and how to control program flow based on conditions. Master the foundation of all interactive programs.**
+**Learn to make decisions in programs. Understand if/else statements, multiple branches with elif, nested conditions, and how to control program flow based on conditions. Master the foundation of all interactive programs.** 1
 
 ---
 
