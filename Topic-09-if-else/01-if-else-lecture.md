@@ -25,7 +25,7 @@ Without it, your program runs the same sequence every time. With it, your progra
 
 ---
 
-## Mental Model 1: What Is an If Statement? (The Decision Model)
+## Mental Model 1: What Is an If Statement? (The Decision Model).
 
 An **if statement** is a way to make decisions in code.
 
