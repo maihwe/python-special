@@ -1,644 +1,700 @@
-# Topic 8: Comparisons - Elaborate Examples
-# Comprehensive examples of comparing values in Python
+#!/usr/bin/env python3
+"""
+Topic 8: Comparisons - Code Examples for Lectures
+
+This file contains runnable examples for each lecture.
+Run this file to see comparison concepts in action.
+"""
 
 # ============================================================================
-# EXAMPLE 1: Basic Equality Comparisons
+# LECTURE 1: What Are Comparisons? (The Foundation)
 # ============================================================================
-# Testing if values are the same
 
-print("Example 1: Equality Comparisons")
-print("-" * 50)
+print("=" * 80)
+print("LECTURE 1: What Are Comparisons? (The Foundation)")
+print("=" * 80)
 
-# Integers
-print(f"5 == 5: {5 == 5}")
-print(f"5 == 3: {5 == 3}")
-print(f"5 != 3: {5 != 3}")
-print(f"5 != 5: {5 != 5}")
-print()
+# Example 1.1: Basic comparisons return True or False
+print("\nExample 1.1: Comparisons Return Boolean Values")
+print("-" * 80)
 
-# Strings
-print(f"'hello' == 'hello': {'hello' == 'hello'}")
-print(f"'hello' == 'HELLO': {'hello' == 'HELLO'}")
-print(f"'hello' != 'world': {'hello' != 'world'}")
-print()
+result1 = 5 > 3
+print(f"5 > 3 → {result1}")
+print(f"Type: {type(result1)}")
 
-# Mixed numeric types
-print(f"5 == 5.0: {5 == 5.0}")
-print(f"5 != 5.0: {5 != 5.0}")
-print()
+result2 = "apple" == "banana"
+print(f"'apple' == 'banana' → {result2}")
+print(f"Type: {type(result2)}")
+
+# Example 1.2: Comparisons in decision-making
+print("\nExample 1.2: Comparisons Enable Decision-Making")
+print("-" * 80)
+
+age = 16
+if age >= 18:
+    print(f"You (age {age}) can vote")
+else:
+    print(f"You (age {age}) cannot vote yet")
+
+# Example 1.3: Structure of a comparison
+print("\nExample 1.3: The Structure of a Comparison")
+print("-" * 80)
+print("""
+Comparison: age >= 18
+            │    ││ │
+            │    ││ └─ Right value (reference: 18)
+            │    │└── Operator (greater than or equal)
+            │    └─── Left value (the variable being tested)
+            └─────── Comparison = Question + Answer
+""")
+
+score = 95
+left_value = score
+operator_name = ">="
+right_value = 90
+result = left_value >= right_value
+print(f"\nComparison: {score} {operator_name} {right_value}")
+print(f"Answer: {result} (Is {score} ≥ {right_value}? {result})")
 
 # ============================================================================
-# EXAMPLE 2: Greater Than and Less Than
+# LECTURE 2: Comparison Operators (The Tools)
 # ============================================================================
-# Testing ordering relationships
 
-print("Example 2: Ordering Comparisons")
-print("-" * 50)
+print("\n" + "=" * 80)
+print("LECTURE 2: Comparison Operators (The Tools)")
+print("=" * 80)
+
+# Example 2.1: Equality operators
+print("\nExample 2.1: Equality Operators (== and !=)")
+print("-" * 80)
+
+x = 5
+y = 5
+z = 3
+
+print(f"x = {x}, y = {y}, z = {z}")
+print(f"\nx == y: {x == y} (Are they equal?)")
+print(f"x == z: {x == z} (Are they equal?)")
+print(f"x != z: {x != z} (Are they different?)")
+print(f"x != y: {x != y} (Are they different?)")
+
+print("\n⚠️  IMPORTANT: == is comparison, = is assignment")
+print("x = 5      assigns 5 to x")
+print("x == 5     compares: is x equal to 5?")
+
+# Example 2.2: Ordering operators - strict
+print("\nExample 2.2: Ordering Operators - Strict (> and <)")
+print("-" * 80)
 
 a = 10
 b = 5
+c = 10
 
-print(f"a = {a}, b = {b}")
-print()
-print(f"a > b: {a > b}")
-print(f"a < b: {a < b}")
-print(f"b < a: {b < a}")
-print(f"a > a: {a > a}")
-print()
+print(f"a = {a}, b = {b}, c = {c}")
+print(f"\na > b: {a > b} (Is 10 > 5? Yes)")
+print(f"b > a: {b > a} (Is 5 > 10? No)")
+print(f"a > c: {a > c} (Is 10 > 10? No - they're equal, not greater)")
+print(f"\nNote: > does NOT include equality!")
 
-# With floats
-x = 3.5
-y = 3.2
-print(f"x = {x}, y = {y}")
-print(f"x > y: {x > y}")
-print(f"x < y: {x < y}")
-print()
+# Example 2.3: Ordering operators - inclusive
+print("\nExample 2.3: Ordering Operators - Inclusive (>= and <=)")
+print("-" * 80)
 
-# ============================================================================
-# EXAMPLE 3: Greater/Less Than or Equal
-# ============================================================================
-# Testing boundary conditions
+print(f"\nSame values: a = {a}, c = {c}")
+print(f"a > c: {a > c} (Is 10 > 10? No)")
+print(f"a >= c: {a >= c} (Is 10 ≥ 10? Yes - INCLUDES equality)")
+print(f"\nNote: >= INCLUDES equality!")
 
-print("Example 3: Greater/Less Than or Equal")
-print("-" * 50)
+# Example 2.4: Real-world: age eligibility
+print("\nExample 2.4: Real-World Example - Age Eligibility")
+print("-" * 80)
 
-score = 85
-passing_score = 85
-
-print(f"Score: {score}, Passing: {passing_score}")
-print(f"score >= passing_score: {score >= passing_score}")
-print(f"score > passing_score: {score > passing_score}")
-print()
-
-# Temperature check
-temp = 32
-freezing = 32
-print(f"Temperature: {temp}°F, Freezing point: {freezing}°F")
-print(f"temp <= freezing: {temp <= freezing}")
-print(f"temp < freezing: {temp < freezing}")
-print()
+ages = [16, 18, 21, 25]
+for age in ages:
+    can_vote = age >= 18
+    can_drink = age >= 21
+    print(f"Age {age}: Can vote? {can_vote:5} | Can drink? {can_drink:5}")
 
 # ============================================================================
-# EXAMPLE 4: String Comparisons - Alphabetical Order
+# LECTURE 3: Equality vs Identity (The Subtle Difference)
 # ============================================================================
-# Strings compare character by character
 
-print("Example 4: String Comparisons")
-print("-" * 50)
+print("\n" + "=" * 80)
+print("LECTURE 3: Equality vs Identity (== vs is)")
+print("=" * 80)
 
-print(f"'apple' < 'banana': {'apple' < 'banana'}")
-print(f"'zebra' > 'apple': {'zebra' > 'apple'}")
-print(f"'apple' == 'apple': {'apple' == 'apple'}")
-print(f"'Apple' == 'apple': {'Apple' == 'apple'}")
-print()
-
-print("Shorter strings come first:")
-print(f"'cat' < 'dog': {'cat' < 'dog'}")
-print(f"'cat' < 'category': {'cat' < 'category'}")
-print()
-
-print("Case matters (uppercase < lowercase in ASCII):")
-print(f"'Apple' < 'apple': {'Apple' < 'apple'}")
-print()
-
-# ============================================================================
-# EXAMPLE 5: Equality of Different Types
-# ============================================================================
-# Mixed type comparisons
-
-print("Example 5: Different Type Comparisons")
-print("-" * 50)
-
-print(f"5 == 5.0: {5 == 5.0}")
-print(f"5 == '5': {5 == '5'}")
-print(f"5.0 == '5.0': {5.0 == '5.0'}")
-print()
-
-print("To compare across types, convert first:")
-print(f"int('5') == 5: {int('5') == 5}")
-print(f"str(5) == '5': {str(5) == '5'}")
-print()
-
-# ============================================================================
-# EXAMPLE 6: Boolean Comparisons
-# ============================================================================
-# Comparing boolean values
-
-print("Example 6: Boolean Comparisons")
-print("-" * 50)
-
-print(f"True == True: {True == True}")
-print(f"True == False: {True == False}")
-print(f"True == 1: {True == 1}")
-print(f"False == 0: {False == 0}")
-print()
-
-print("Note: Python allows bool vs int comparison")
-print(f"True > False: {True > False}")
-print()
-
-# ============================================================================
-# EXAMPLE 7: Identity - is vs ==
-# ============================================================================
-# Difference between equality and identity
-
-print("Example 7: Identity (is) vs Equality (==)")
-print("-" * 50)
-
-# Lists
-x = [1, 2, 3]
-y = [1, 2, 3]
-z = x
-
-print(f"x = {x}")
-print(f"y = {y}")
-print(f"z = x")
-print()
-
-print(f"x == y: {x == y}  (same contents)")
-print(f"x is y: {x is y}  (different objects)")
-print(f"x is z: {x is z}  (same object)")
-print()
-
-# None checks
-value = None
-print(f"value = {value}")
-print(f"value is None: {value is None}  (correct way)")
-print(f"value == None: {value == None}  (works but not preferred)")
-print()
-
-# ============================================================================
-# EXAMPLE 8: Membership Testing - in Operator
-# ============================================================================
-# Testing if value exists in collection
-
-print("Example 8: Membership Testing (in)")
-print("-" * 50)
-
-numbers = [1, 2, 3, 4, 5]
-print(f"List: {numbers}")
-print()
-
-print(f"3 in numbers: {3 in numbers}")
-print(f"10 in numbers: {10 in numbers}")
-print(f"3 not in numbers: {3 not in numbers}")
-print(f"10 not in numbers: {10 not in numbers}")
-print()
-
-# Strings
-text = "hello"
-print(f"Text: '{text}'")
-print(f"'h' in text: {'h' in text}")
-print(f"'x' in text: {'x' in text}")
-print(f"'ell' in text: {'ell' in text}")
-print()
-
-# ============================================================================
-# EXAMPLE 9: Comparison Result Type
-# ============================================================================
-# Comparisons always return boolean
-
-print("Example 9: Comparison Results Are Booleans")
-print("-" * 50)
-
-result = 5 > 3
-print(f"result = 5 > 3")
-print(f"result: {result}")
-print(f"type(result): {type(result).__name__}")
-print()
-
-# Store comparison result in variable
-age = 25
-is_adult = age >= 18
-print(f"age = {age}")
-print(f"is_adult = age >= 18")
-print(f"is_adult: {is_adult}")
-print(f"type(is_adult): {type(is_adult).__name__}")
-print()
-
-# ============================================================================
-# EXAMPLE 10: Comparison Chains
-# ============================================================================
-# Multiple comparisons in one expression
-
-print("Example 10: Comparison Chains")
-print("-" * 50)
-
-x = 5
-print(f"x = {x}")
-print()
-
-print(f"1 < x < 10: {1 < x < 10}")
-print(f"Same as: (1 < x) and (x < 10): {(1 < x) and (x < 10)}")
-print()
-
-# Range checking
-score = 85
-print(f"Score: {score}")
-print(f"80 <= score < 90: {80 <= score < 90}  (B grade range)")
-print()
-
-# More complex chain
-a = 2
-b = 5
-c = 8
-print(f"a={a}, b={b}, c={c}")
-print(f"a < b < c: {a < b < c}")
-print()
-
-# ============================================================================
-# EXAMPLE 11: Real-World Scenario - Age Verification
-# ============================================================================
-# Checking eligibility based on age
-
-print("Example 11: Age Verification")
-print("-" * 50)
-
-age = 21
-print(f"Age: {age}")
-print()
-
-if age >= 21:
-    print("✓ Can buy alcohol")
-else:
-    print("✗ Cannot buy alcohol")
-
-if age >= 18:
-    print("✓ Can vote")
-else:
-    print("✗ Cannot vote")
-
-if age >= 65:
-    print("✓ Eligible for senior discount")
-else:
-    print("✗ Not yet senior")
-
-if 13 <= age < 18:
-    print("✓ Teenager")
-else:
-    print("✗ Not a teenager")
-print()
-
-# ============================================================================
-# EXAMPLE 12: Real-World Scenario - Grade Assignment
-# ============================================================================
-# Assigning grades based on score ranges
-
-print("Example 12: Grade Assignment")
-print("-" * 50)
-
-score = 87
-print(f"Score: {score}")
-print()
-
-if score >= 90:
-    grade = "A"
-elif score >= 80:
-    grade = "B"
-elif score >= 70:
-    grade = "C"
-elif score >= 60:
-    grade = "D"
-else:
-    grade = "F"
-
-print(f"Grade: {grade}")
-print()
-
-# Alternative using comparison chains
-if 90 <= score <= 100:
-    print("A grade range")
-elif 80 <= score < 90:
-    print("B grade range")
-elif 70 <= score < 80:
-    print("C grade range")
-print()
-
-# ============================================================================
-# EXAMPLE 13: Real-World Scenario - Password Validation
-# ============================================================================
-# Checking password strength
-
-print("Example 13: Password Validation")
-print("-" * 50)
-
-password = "mypassword123"
-print(f"Password: {password}")
-print()
-
-is_long_enough = len(password) >= 8
-print(f"Length >= 8: {is_long_enough}")
-
-has_letter = any(c.isalpha() for c in password)
-print(f"Has letter: {has_letter}")
-
-has_digit = any(c.isdigit() for c in password)
-print(f"Has digit: {has_digit}")
-
-is_valid = is_long_enough and has_letter and has_digit
-print(f"Valid password: {is_valid}")
-print()
-
-# ============================================================================
-# EXAMPLE 14: Real-World Scenario - Inventory Status
-# ============================================================================
-# Checking if items need reordering
-
-print("Example 14: Inventory Status")
-print("-" * 50)
-
-items = [
-    ("Widget", 5, 10),
-    ("Gadget", 15, 10),
-    ("Gizmo", 3, 10),
-]
-
-print("Item       Stock  Min   Status")
-print("-" * 40)
-
-for name, stock, minimum in items:
-    if stock < minimum:
-        status = "REORDER"
-    elif stock <= minimum * 1.5:
-        status = "LOW"
-    else:
-        status = "OK"
-    
-    print(f"{name:10} {stock:5}  {minimum:5}  {status}")
-print()
-
-# ============================================================================
-# EXAMPLE 15: Real-World Scenario - Temperature Alert System
-# ============================================================================
-# Monitoring temperature with thresholds
-
-print("Example 15: Temperature Alerts")
-print("-" * 50)
-
-readings = [20, 45, 85, 95, 105, 120]
-
-for temp in readings:
-    if temp > 100:
-        alert = "CRITICAL: Shutdown"
-    elif temp > 80:
-        alert = "WARNING: Running hot"
-    elif temp > 50:
-        alert = "INFO: Elevated"
-    elif temp < 0:
-        alert = "CRITICAL: Freezing"
-    else:
-        alert = "Normal"
-    
-    print(f"Temp: {temp:3}°F → {alert}")
-print()
-
-# ============================================================================
-# EXAMPLE 16: Multiple Conditions
-# ============================================================================
-# Combining comparisons with logic
-
-print("Example 16: Multiple Conditions")
-print("-" * 50)
-
-username = "alice"
-password = "secret123"
-is_admin = False
-
-print(f"Username: {username}")
-print(f"Password: {password}")
-print(f"Is admin: {is_admin}")
-print()
-
-# Multiple conditions (all must be true)
-if username == "alice" and password == "secret123":
-    print("✓ Credentials are correct")
-else:
-    print("✗ Invalid credentials")
-
-if username != "admin":
-    print("✓ Not using admin account")
-
-if not is_admin:
-    print("✓ User is not admin")
-print()
-
-# ============================================================================
-# EXAMPLE 17: Forbidden Values Check
-# ============================================================================
-# Testing membership for validation
-
-print("Example 17: Forbidden Values")
-print("-" * 50)
-
-forbidden_usernames = ["admin", "root", "system", "administrator"]
-
-test_usernames = ["john", "admin", "alice", "root", "bob"]
-
-print(f"Forbidden: {forbidden_usernames}")
-print()
-
-for username in test_usernames:
-    if username in forbidden_usernames:
-        print(f"✗ '{username}' - FORBIDDEN")
-    else:
-        print(f"✓ '{username}' - Available")
-print()
-
-# ============================================================================
-# EXAMPLE 18: Numeric Range Validation
-# ============================================================================
-# Checking if value is within acceptable range
-
-print("Example 18: Range Validation")
-print("-" * 50)
-
-acceptable_values = [50, 95, 150, 200, 275, 350]
-min_range = 0
-max_range = 255
-
-print(f"Valid range: {min_range} - {max_range}")
-print()
-
-for val in acceptable_values:
-    if min_range <= val <= max_range:
-        status = "✓ Valid"
-    else:
-        status = "✗ Out of range"
-    print(f"Value {val}: {status}")
-print()
-
-# ============================================================================
-# EXAMPLE 19: String Validation
-# ============================================================================
-# Checking string properties
-
-print("Example 19: String Validation")
-print("-" * 50)
-
-words = ["hello", "WORLD", "Python123", "a", ""]
-
-for word in words:
-    is_empty = word == ""
-    is_uppercase = word == word.upper()
-    is_lowercase = word == word.lower()
-    has_digit = any(c.isdigit() for c in word)
-    
-    print(f"'{word:15}' → Empty:{is_empty}, Upper:{is_uppercase}, Lower:{is_lowercase}, Digit:{has_digit}")
-print()
-
-# ============================================================================
-# EXAMPLE 20: Equality vs Identity with Integers
-# ============================================================================
-# Python caches small integers
-
-print("Example 20: Integer Caching Behavior")
-print("-" * 50)
-
-# Small integers (usually cached)
-a = 5
-b = 5
-print(f"a = 5, b = 5")
-print(f"a == b: {a == b}  (same value)")
-print(f"a is b: {a is b}  (usually same object, cached)")
-print()
-
-# Large integers (usually not cached)
-x = 257
-y = 257
-print(f"x = 257, y = 257")
-print(f"x == y: {x == y}  (same value)")
-print(f"x is y: {x is y}  (probably different objects, not cached)")
-print()
-
-# ============================================================================
-# EXAMPLE 21: Case-Sensitive String Comparison
-# ============================================================================
-# Case matters in Python strings
-
-print("Example 21: Case-Sensitive Comparison")
-print("-" * 50)
-
-password_stored = "SecurePassword123"
-attempts = ["securepassword123", "SecurePassword123", "SECUREPASSWORD123"]
-
-for attempt in attempts:
-    if attempt == password_stored:
-        print(f"'{attempt}' ✓ MATCH")
-    else:
-        print(f"'{attempt}' ✗ no match (case matters)")
-print()
-
-# Case-insensitive comparison
-print("Case-insensitive check:")
-for attempt in attempts:
-    if attempt.lower() == password_stored.lower():
-        print(f"'{attempt}' ✓ match (ignoring case)")
-print()
-
-# ============================================================================
-# EXAMPLE 22: Comparison with None
-# ============================================================================
-# Proper way to check for None
-
-print("Example 22: Checking for None")
-print("-" * 50)
-
-values = [None, 0, "", False, [], "hello"]
-
-print("Value        is None?   == None?")
-print("-" * 40)
-
-for val in values:
-    check_is = val is None
-    check_eq = val == None
-    print(f"{repr(val):15} {check_is:10} {check_eq:10}")
-print()
-
-# ============================================================================
-# EXAMPLE 23: Comparing Mixed Lists
-# ============================================================================
-# Lists are compared element by element
-
-print("Example 23: List Comparisons")
-print("-" * 50)
+# Example 3.1: Lists with same content vs same object
+print("\nExample 3.1: Two Lists with Same Content (But Different Objects)")
+print("-" * 80)
 
 list1 = [1, 2, 3]
 list2 = [1, 2, 3]
-list3 = [1, 2, 4]
-list4 = [1, 2]
 
 print(f"list1 = {list1}")
 print(f"list2 = {list2}")
-print(f"list3 = {list3}")
-print(f"list4 = {list4}")
-print()
+print(f"\nlist1 == list2: {list1 == list2} (Same content?)")
+print(f"list1 is list2: {list1 is list2} (Same object?)")
+print("\nThey have the same content but are different objects in memory.")
 
-print(f"list1 == list2: {list1 == list2}  (same contents)")
-print(f"list1 == list3: {list1 == list3}  (different values)")
-print(f"list1 < list3: {list1 < list3}  (first difference at index 2)")
-print(f"list1 > list4: {list1 > list4}  (longer list is greater)")
-print()
+# Example 3.2: Pointing to the same object
+print("\nExample 3.2: Two Variables Pointing to the Same Object")
+print("-" * 80)
+
+list1 = [1, 2, 3]
+list2 = list1  # list2 now points to the SAME list
+
+print(f"list1 = {list1}")
+print(f"list2 = list1")
+print(f"\nlist1 == list2: {list1 == list2} (Same content?)")
+print(f"list1 is list2: {list1 is list2} (Same object?)")
+print("\nNow they're the same object. Changing one affects the other:")
+
+list1.append(4)
+print(f"After list1.append(4):")
+print(f"  list1 = {list1}")
+print(f"  list2 = {list2}  ← Changed too!")
+
+# Example 3.3: When to use each
+print("\nExample 3.3: When to Use == vs is")
+print("-" * 80)
+
+# Use == for comparing values (99% of the time)
+password_entered = "secret123"
+password_stored = "secret123"
+if password_entered == password_stored:
+    print("✓ Password matches (using ==)")
+
+# Use is for None (the main use case)
+value = None
+if value is None:
+    print("✓ Value is None (using is None)")
+
+# Example 3.4: The is None pattern
+print("\nExample 3.4: Checking for None - The Standard Pattern")
+print("-" * 80)
+
+values = [5, None, "hello", None, 0]
+for value in values:
+    if value is None:
+        print(f"Value is None")
+    else:
+        print(f"Value is {value}")
 
 # ============================================================================
-# EXAMPLE 24: Chained Comparisons with Variables
+# LECTURE 4: Comparison Chains (Elegant Range Testing)
 # ============================================================================
-# Using variables in comparison chains
 
-print("Example 24: Chained Comparisons with Variables")
-print("-" * 50)
+print("\n" + "=" * 80)
+print("LECTURE 4: Comparison Chains (Elegant Range Testing)")
+print("=" * 80)
 
-min_score = 70
-user_score = 85
-max_score = 100
+# Example 4.1: Traditional range checking
+print("\nExample 4.1: Traditional Range Check (Verbose)")
+print("-" * 80)
 
-print(f"Score range: {min_score}-{max_score}")
-print(f"User score: {user_score}")
-print()
-
-print(f"min_score <= user_score <= max_score: {min_score <= user_score <= max_score}")
-print(f"user_score > min_score and user_score < max_score: {user_score > min_score and user_score < max_score}")
-print()
-
-# ============================================================================
-# EXAMPLE 25: Complex Comparisons in Decision Making
-# ============================================================================
-# Real-world logic combining multiple conditions
-
-print("Example 25: Complex Decision Logic")
-print("-" * 50)
-
-# Loan approval system
-age = 35
-income = 75000
-credit_score = 720
-employment_years = 3
-debt = 20000
-
-print("Loan Application:")
-print(f"  Age: {age}")
-print(f"  Income: ${income:,}")
-print(f"  Credit Score: {credit_score}")
-print(f"  Employment: {employment_years} years")
-print(f"  Debt: ${debt:,}")
-print()
-
-# Check eligibility
-is_age_ok = age >= 21
-is_income_ok = income >= 40000
-is_credit_ok = credit_score >= 700
-is_employed = employment_years >= 2
-debt_to_income = (debt / income) <= 0.5
-
-print("Checks:")
-print(f"  Age >= 21: {is_age_ok}")
-print(f"  Income >= $40k: {is_income_ok}")
-print(f"  Credit >= 700: {is_credit_ok}")
-print(f"  Employed 2+ years: {is_employed}")
-print(f"  Debt-to-income ratio OK: {debt_to_income}")
-print()
-
-if is_age_ok and is_income_ok and is_credit_ok and is_employed and debt_to_income:
-    print("✓ APPROVED")
+x = 5
+if x > 1 and x < 10:
+    print(f"{x} is between 1 and 10")
 else:
-    print("✗ DENIED")
+    print(f"{x} is NOT between 1 and 10")
+print("This works but repeats x twice.")
 
+# Example 4.2: Comparison chains
+print("\nExample 4.2: Comparison Chains (Pythonic)")
+print("-" * 80)
+
+x = 5
+if 1 < x < 10:
+    print(f"{x} is between 1 and 10")
+else:
+    print(f"{x} is NOT between 1 and 10")
+print("This reads naturally and repeats x only once.")
+
+# Example 4.3: How chains work
+print("\nExample 4.3: How Comparison Chains Work")
+print("-" * 80)
+
+test_values = [0, 5, 10, 15]
+for x in test_values:
+    result = 1 < x < 10
+    print(f"1 < {x} < 10 → {result}")
+    if not result:
+        # Show why
+        if not (1 < x):
+            print(f"    (because 1 < {x} is False)")
+        elif not (x < 10):
+            print(f"    (because {x} < 10 is False)")
+
+# Example 4.4: Grade boundaries with chains
+print("\nExample 4.4: Grade Boundaries with Chains")
+print("-" * 80)
+
+def get_grade(score):
+    if 90 <= score <= 100:
+        return "A"
+    elif 80 <= score < 90:
+        return "B"
+    elif 70 <= score < 80:
+        return "C"
+    elif 60 <= score < 70:
+        return "D"
+    else:
+        return "F"
+
+scores = [45, 65, 75, 85, 95, 105]
+for score in scores:
+    grade = get_grade(score)
+    print(f"Score {score:3} → Grade {grade}")
+
+# ============================================================================
+# LECTURE 5: Type Matters in Comparisons
+# ============================================================================
+
+print("\n" + "=" * 80)
+print("LECTURE 5: Type Matters in Comparisons")
+print("=" * 80)
+
+# Example 5.1: Comparing numbers (int and float)
+print("\nExample 5.1: Comparing Numbers (int and float)")
+print("-" * 80)
+
+a = 5      # int
+b = 5.0    # float
+c = 5.5    # float
+
+print(f"a = {a} (type: {type(a).__name__})")
+print(f"b = {b} (type: {type(b).__name__})")
+print(f"c = {c} (type: {type(c).__name__})")
+print(f"\na == b: {a == b} (Python compares values, not types)")
+print(f"type(a) == type(b): {type(a) == type(b)} (But types are different)")
+print(f"\na < c: {a < c} (Numeric comparison works)")
+
+# Example 5.2: Comparing strings
+print("\nExample 5.2: Comparing Strings (Alphabetically)")
+print("-" * 80)
+
+s1 = "apple"
+s2 = "banana"
+s3 = "apple"
+
+print(f"s1 = '{s1}'")
+print(f"s2 = '{s2}'")
+print(f"s3 = '{s3}'")
+print(f"\ns1 == s3: {s1 == s3} (Exact match)")
+print(f"s1 == s2: {s1 == s2} (Different strings)")
+print(f"s1 < s2: {s1 < s2} (Alphabetically: 'a' comes before 'b')")
+
+# Example 5.3: Case sensitivity
+print("\nExample 5.3: Case Sensitivity in String Comparison")
+print("-" * 80)
+
+s1 = "Hello"
+s2 = "hello"
+
+print(f"s1 = '{s1}'")
+print(f"s2 = '{s2}'")
+print(f"\ns1 == s2: {s1 == s2} (Case matters)")
+print(f"s1.lower() == s2.lower(): {s1.lower() == s2.lower()} (Case-insensitive)")
+
+# Example 5.4: Type mismatch errors
+print("\nExample 5.4: Type Mismatch in Comparisons")
+print("-" * 80)
+
+print("5 == '5':", 5 == "5", "(Different types, returns False)")
+print("5 != '5':", 5 != "5", "(Different types, returns True)")
+
+print("\nAttempting 5 < 'hello' causes TypeError...")
+try:
+    result = 5 < "hello"
+    print(f"Result: {result}")
+except TypeError as e:
+    print(f"✗ Error: {e}")
+    print("  Solution: Convert to same type first")
+    result = str(5) < "hello"
+    print(f"  str(5) < 'hello': {result}")
+
+# ============================================================================
+# LECTURE 6: String Comparisons Deep Dive
+# ============================================================================
+
+print("\n" + "=" * 80)
+print("LECTURE 6: String Comparisons Deep Dive")
+print("=" * 80)
+
+# Example 6.1: Character-by-character comparison
+print("\nExample 6.1: Character-by-Character Comparison")
+print("-" * 80)
+
+s1 = "apple"
+s2 = "apricot"
+
+print(f"Comparing '{s1}' and '{s2}':")
+print(f"Position 0: '{s1[0]}' vs '{s2[0]}' → Equal, continue")
+print(f"Position 1: '{s1[1]}' vs '{s2[1]}' → Equal, continue")
+print(f"Position 2: '{s1[2]}' vs '{s2[2]}' → '{s1[2]}' < '{s2[2]}', stop")
+print(f"\nResult: '{s1}' < '{s2}' → {s1 < s2}")
+
+# Example 6.2: Prefix comparison
+print("\nExample 6.2: Prefix Comparison")
+print("-" * 80)
+
+s1 = "cat"
+s2 = "catalog"
+
+print(f"Comparing '{s1}' and '{s2}':")
+print(f"'{s1}' is a prefix of '{s2}'")
+print(f"The shorter string comes first.")
+print(f"'{s1}' < '{s2}' → {s1 < s2}")
+
+# Example 6.3: Case sensitivity in ordering
+print("\nExample 6.3: Case Sensitivity (ASCII Order)")
+print("-" * 80)
+
+names = ["alice", "Bob", "charlie", "Diana"]
+print(f"Original: {names}")
+
+sorted_names = sorted(names)
+print(f"Sorted (case-sensitive): {sorted_names}")
+print("Note: Uppercase letters come before lowercase in ASCII")
+
+sorted_case_insensitive = sorted(names, key=str.lower)
+print(f"Sorted (case-insensitive): {sorted_case_insensitive}")
+
+# ============================================================================
+# LECTURE 7: Membership Testing (in and not in)
+# ============================================================================
+
+print("\n" + "=" * 80)
+print("LECTURE 7: Membership Testing (in and not in)")
+print("=" * 80)
+
+# Example 7.1: Basic membership testing
+print("\nExample 7.1: Basic Membership Testing")
+print("-" * 80)
+
+valid_colors = ["red", "green", "blue"]
+test_colors = ["red", "yellow", "blue"]
+
+for color in test_colors:
+    if color in valid_colors:
+        print(f"✓ {color} is valid")
+    else:
+        print(f"✗ {color} is not valid")
+
+# Example 7.2: Substring searching
+print("\nExample 7.2: Substring Searching")
+print("-" * 80)
+
+text = "The quick brown fox jumps over the lazy dog"
+substrings = ["quick", "yellow", "fox", "xyz"]
+
+for substring in substrings:
+    if substring in text:
+        print(f"✓ '{substring}' found in text")
+    else:
+        print(f"✗ '{substring}' not found in text")
+
+# Example 7.3: Using 'not in'
+print("\nExample 7.3: Using 'not in'")
+print("-" * 80)
+
+forbidden_usernames = ["admin", "root", "system"]
+test_usernames = ["alice", "admin", "bob", "root"]
+
+for username in test_usernames:
+    if username not in forbidden_usernames:
+        print(f"✓ '{username}' is available")
+    else:
+        print(f"✗ '{username}' is forbidden")
+
+# Example 7.4: Performance comparison
+print("\nExample 7.4: Performance - Lists vs Sets")
+print("-" * 80)
+
+import time
+
+# Create test data
+size = 100000
+test_list = list(range(size))
+test_set = set(range(size))
+search_value = 99999
+
+# Time list search
+start = time.time()
+for _ in range(1000):
+    _ = search_value in test_list
+list_time = time.time() - start
+
+# Time set search
+start = time.time()
+for _ in range(1000):
+    _ = search_value in test_set
+set_time = time.time() - start
+
+print(f"Searching for {search_value} in {size} items (1000 times):")
+print(f"  List time: {list_time:.4f} seconds")
+print(f"  Set time:  {set_time:.4f} seconds")
+print(f"  Sets are {list_time/set_time:.0f}x faster!")
+
+# ============================================================================
+# LECTURE 8: Common Mistakes and How to Avoid Them
+# ============================================================================
+
+print("\n" + "=" * 80)
+print("LECTURE 8: Common Mistakes and How to Avoid Them")
+print("=" * 80)
+
+# Example 8.1: = vs ==
+print("\nExample 8.1: Assignment (=) vs Comparison (==)")
+print("-" * 80)
+
+x = 5
+print(f"x = 5      ← Assignment (stores 5 in x)")
+print(f"x == 5     ← Comparison (asks: is x equal to 5?)")
+print(f"Result: {x == 5}")
+
+print("\n⚠️  This causes an error:")
+print("if x = 5:   ← Tries to assign inside if condition")
+
+# Example 8.2: Forgetting inclusivity
+print("\nExample 8.2: Forgetting Inclusivity in Range Checks")
+print("-" * 80)
+
+score = 80
+PASSING_SCORE = 80
+
+print(f"score = {score}")
+print(f"PASSING_SCORE = {PASSING_SCORE}")
+
+if score > PASSING_SCORE:
+    print(f"✓ Passing (using >)")
+else:
+    print(f"✗ Not passing (using >)")
+print("  Wait - score equals PASSING_SCORE but > doesn't count equality!")
+
+if score >= PASSING_SCORE:
+    print(f"✓ Passing (using >=)")
+else:
+    print(f"✗ Not passing (using >=)")
+print("  Correct - >= includes the boundary!")
+
+# Example 8.3: Comparing incompatible types
+print("\nExample 8.3: Comparing Incompatible Types")
+print("-" * 80)
+
+value = 5
+name = "Alice"
+
+print(f"value = {value} (int)")
+print(f"name = '{name}' (str)")
+print(f"\nvalue == name: {value == name} (Equality works, returns False)")
+
+print("\nAttempting value < name:")
+try:
+    result = value < name
+except TypeError as e:
+    print(f"✗ Error: {e}")
+    print("Solution: Convert to same type")
+    result = str(value) < name
+    print(f"str({value}) < '{name}': {result}")
+
+# Example 8.4: Case-sensitive string comparison
+print("\nExample 8.4: Case-Sensitive String Comparison")
+print("-" * 80)
+
+password1 = "MyPassword123"
+password2 = "mypassword123"
+
+if password1 == password2:
+    print("✓ Passwords match")
+else:
+    print("✗ Passwords don't match (case differs)")
+
+if password1.lower() == password2.lower():
+    print("✓ Passwords match (ignoring case)")
+else:
+    print("✗ Passwords don't match")
+
+# ============================================================================
+# LECTURE 9: Putting It Together - Decision Making
+# ============================================================================
+
+print("\n" + "=" * 80)
+print("LECTURE 9: Putting It Together - Decision Making")
+print("=" * 80)
+
+# Example 9.1: Single comparison
+print("\nExample 9.1: Single Comparison Decision")
+print("-" * 80)
+
+age = 16
+if age >= 18:
+    print("You can vote")
+else:
+    print("You're too young to vote")
+
+# Example 9.2: Multiple comparisons with AND
+print("\nExample 9.2: Multiple Conditions with AND")
+print("-" * 80)
+
+age = 20
+has_license = True
+
+if age >= 18 and has_license:
+    print("You can drive")
+else:
+    print("You cannot drive")
+
+# Example 9.3: Multiple comparisons with OR
+print("\nExample 9.3: Multiple Conditions with OR")
+print("-" * 80)
+
+day = "Saturday"
+if day == "Saturday" or day == "Sunday":
+    print(f"{day} - It's the weekend!")
+else:
+    print(f"{day} - It's a weekday")
+
+# Example 9.4: Complex decision-making
+print("\nExample 9.4: Complex Decision-Making")
+print("-" * 80)
+
+def validate_password(password):
+    """Validate password against multiple criteria."""
+    is_long_enough = len(password) >= 8
+    has_uppercase = any(c.isupper() for c in password)
+    has_digit = any(c.isdigit() for c in password)
+    
+    if is_long_enough and has_uppercase and has_digit:
+        return "Strong"
+    elif is_long_enough and (has_uppercase or has_digit):
+        return "Medium"
+    elif is_long_enough:
+        return "Weak"
+    else:
+        return "Too Short"
+
+passwords = ["test", "Test", "Test123", "Test123!"]
+for pwd in passwords:
+    strength = validate_password(pwd)
+    print(f"'{pwd}' → {strength}")
+
+# ============================================================================
+# LECTURE 10: Best Practices
+# ============================================================================
+
+print("\n" + "=" * 80)
+print("LECTURE 10: Best Practices")
+print("=" * 80)
+
+# Example 10.1: Using named constants
+print("\nExample 10.1: Using Named Constants")
+print("-" * 80)
+
+# Bad: magic numbers
+age = 20
+if age >= 18:
+    print("Can vote")
+
+# Good: named constants
+VOTING_AGE = 18
+LEGAL_DRINKING_AGE = 21
+
+if age >= VOTING_AGE:
+    print("Can vote")
+
+if age >= LEGAL_DRINKING_AGE:
+    print("Can drink")
+
+# Example 10.2: Using comparison chains for ranges
+print("\nExample 10.2: Using Comparison Chains for Ranges")
+print("-" * 80)
+
+temperature = 72
+
+# Bad
+if temperature > 60 and temperature < 80:
+    print("Comfortable")
+
+# Good
+if 60 < temperature < 80:
+    print("Comfortable")
+
+# Example 10.3: Using 'in' for collection membership
+print("\nExample 10.3: Using 'in' for Collection Membership")
+print("-" * 80)
+
+status = "active"
+
+# Bad
+if status == "active" or status == "pending" or status == "waiting":
+    print("Can proceed")
+
+# Good
+if status in ["active", "pending", "waiting"]:
+    print("Can proceed")
+
+# Example 10.4: Using isinstance() for type checking
+print("\nExample 10.4: Using isinstance() for Type Checking")
+print("-" * 80)
+
+values = [5, 5.5, "hello", True]
+
+for value in values:
+    # Good practice
+    if isinstance(value, int) and not isinstance(value, bool):
+        print(f"{value}: integer")
+    elif isinstance(value, float):
+        print(f"{value}: float")
+    elif isinstance(value, str):
+        print(f"{value}: string")
+    elif isinstance(value, bool):
+        print(f"{value}: boolean")
+
+# Example 10.5: Using 'is None' for None checking
+print("\nExample 10.5: Using 'is None' for None Checking")
+print("-" * 80)
+
+values = [5, None, "hello", None, 0]
+
+for value in values:
+    # Good practice
+    if value is None:
+        print(f"Value is None")
+    elif value == 0:
+        print(f"Value is zero")
+    else:
+        print(f"Value is {value}")
+
+# ============================================================================
+# SUMMARY
+# ============================================================================
+
+print("\n" + "=" * 80)
+print("SUMMARY: Key Takeaways")
+print("=" * 80)
+print("""
+1. Comparisons ask yes/no questions about values
+2. They return boolean: True or False
+3. Different operators test different relationships:
+   - ==, != for equality
+   - <, >, <=, >= for ordering
+   - is, is not for identity
+   - in, not in for membership
+
+4. Type matters - comparisons work differently with different types
+
+5. Best practices:
+   - Use == for values, is for None
+   - Use comparison chains for ranges
+   - Use 'in' for collection membership
+   - Use named constants for boundaries
+   - Use isinstance() for type checking
+
+6. Comparisons are the foundation of decision-making
+   Master them, and your programs gain intelligence
+""")
+
+print("=" * 80)
+print("END OF CODE EXAMPLES")
+print("=" * 80)
