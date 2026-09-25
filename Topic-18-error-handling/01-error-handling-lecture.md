@@ -17,7 +17,7 @@ number = int(user_input)  # Crashes if user enters "abc"!
 # ValueError: invalid literal for int()
 ```
 
-**With error handling (robust):**
+**With error handling (robust):**=
 ```python
 try:
     user_input = input("Enter a number: ")
