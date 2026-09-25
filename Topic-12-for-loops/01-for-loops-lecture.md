@@ -6,7 +6,7 @@
 
 ---
 
-## Why This Matters - The Real Problem
+## Why This Matters - The Real Problems
 
 Many programs need to process collections:
 
