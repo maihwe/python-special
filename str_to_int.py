@@ -15,3 +15,4 @@ print()
 
 next_year_age = age + 1
 print(f"Next year you will be: {next_year_age}")
+print()
