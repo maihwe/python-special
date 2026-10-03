@@ -2,7 +2,7 @@
 # Comprehensive examples of modules, packages, imports, and code organization
 
 # ============================================================================
-# EXAMPLE 1: Simple Module Import
+# EXAMPLE 1: Simple Module Imports
 # ============================================================================
 # Import an entire module
 
