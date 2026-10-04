@@ -2,7 +2,7 @@
 # Comprehensive examples of classes, objects, inheritance, and polymorphism
 
 # ============================================================================
-# EXAMPLE 1: Simple Class Definition
+# EXAMPLE 1: Simple Class Definitionscl
 # ============================================================================
 # Define and create objects
 
