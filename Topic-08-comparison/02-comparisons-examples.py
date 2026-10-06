@@ -136,7 +136,7 @@ print(f"\nlist1 == list2: {list1 == list2} (Same content?)")
 print(f"list1 is list2: {list1 is list2} (Same object?)")
 print("\nThey have the same content but are different objects in memory.")
 
-# Example 3.2: Pointing to the same object
+# Examples 3.2: Pointing to the same object
 print("\nExample 3.2: Two Variables Pointing to the Same Object")
 print("-" * 80)
 
