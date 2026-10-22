@@ -113,7 +113,7 @@ else:
 print()
 
 # ============================================================================
-# EXAMPLE 5: Logical Operator 'and'
+# EXAMPLE 5: Logical Operator 'and' 
 # ============================================================================
 # Both conditions must be true
 
