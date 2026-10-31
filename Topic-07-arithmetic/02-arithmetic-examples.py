@@ -1,5 +1,5 @@
 # Topic 7: Arithmetic - Elaborate Examples
-# Comprehensive examples of mathematical operations in Python
+# Comprehensive examples of mathematical operations in Python explained
 
 # ============================================================================
 # EXAMPLE 1: Basic Arithmetic Operators
